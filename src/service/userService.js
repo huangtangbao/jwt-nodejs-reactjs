@@ -46,8 +46,19 @@ const getUserList = async () => {
         throw error;
     }
 };
+const deleteUsers = async (id) => {
+    try {
+        const sql = "DELETE FROM users WHERE id=?";
+        const [results] = await pool.execute(sql, [id]);
+        return results;
+    } catch (error) {
+        console.error("Lỗi khi xóa user:", error);
+        throw error;
+    }
+};
 
 module.exports = {
     CreateNewUser,
-    getUserList
+    getUserList,
+    deleteUsers
 }
