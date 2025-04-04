@@ -1,24 +1,36 @@
 {
-  "name": "fullstackreactjs_backend",
+  "name": "jwtbackend",
   "version": "1.0.0",
   "description": "jwt nodejs react",
+  "keywords": [
+    "jwt-nodejs"
+  ],
+  "homepage": "https://github.com/huangtangbao/jwt-nodejs-reactjs#readme",
+  "bugs": {
+    "url": "https://github.com/huangtangbao/jwt-nodejs-reactjs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangtangbao/jwt-nodejs-reactjs.git"
+  },
+  "license": "ISC",
+  "author": "pau",
+  "type": "commonjs",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec babel-node src/server.js"
   },
-  "author": "pau",
-  "license": "ISC",
   "dependencies": {
-    "@babel/core": "7.26.10",
-    "@babel/node": "7.26.0",
-    "@babel/preset-env": "7.26.9",
-    "bcryptjs": "3.0.2",
-    "body-parser": "1.20.3",
-    "dotenv": "16.4.7",
-    "ejs": "3.1.10",
-    "express": "4.21.2",
-    "mysql2": "3.14.0",
-    "nodemon": "3.1.9"
+    "@babel/core": "^7.26.10",
+    "@babel/node": "^7.26.0",
+    "@babel/preset-env": "^7.26.9",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mysql2": "^3.14.0",
+    "nodemon": "^3.1.9"
   }
 }

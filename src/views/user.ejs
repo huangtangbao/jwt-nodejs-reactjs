@@ -12,10 +12,11 @@
 </head>
 
 <body>
-    <div class="user-infor-container">
-        <form method="POST" action="/users/create-user">
-            <div class="container">
-                <div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="user-infor-container">
+                <form method="POST" action="/users/create-user">
+
                     <div class="mb-3 mt-3">
                         <h1>Create A New User</h1>
                     </div>
@@ -37,9 +38,41 @@
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                </div>
+                </form>
             </div>
-        </form>
+            <div class="table-user mt-3">
+                <h3>Table Users:</h3>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">UserName</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% userlist.forEach((user, index)=> { %>
+                            <tr>
+                                <th scope="row">
+                                    <%= index + 1 %>
+                                </th>
+                                <td>
+                                    <%= user.email %>
+                                </td>
+                                <td>
+                                    <%= user.username %>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-primary">Edit</button>
+                                    <button type="button" class="btn btn-outline-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 

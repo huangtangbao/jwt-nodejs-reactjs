@@ -3,11 +3,16 @@ const handleHelloWorld = (req, res) => {
     //const name = "Eric";
     return res.render("home.ejs",);
 }
-const handleUserPage = (req, res) => {
-    //const name = "Eric";
-    return res.render("user.ejs");
+const handleUserPage = async (req, res) => {
+    try {
+        let userlist = await userService.getUserList();
+        return res.render("user.ejs", { userlist });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send("Lỗi hiện thị user từ database");
+    }
 }
-/*const handleCreateNewUser = async (req, res) => {
+const handleCreateNewUser = async (req, res) => {
     try {
         let { email, password, username } = req.body;
         await userService.CreateNewUser(email, password, username);
@@ -16,9 +21,9 @@ const handleUserPage = (req, res) => {
         console.error(err);
         return res.status(500).send("Lỗi khi thêm user vào database");
     }
-};*/
+};
 
-const handleCreateNewUser = async (req, res) => {
+/*const handleCreateNewUser = async (req, res) => {
     try {
         await userService.getUserList();
         return res.send("Hiện thị user thành công!");
@@ -26,7 +31,7 @@ const handleCreateNewUser = async (req, res) => {
         console.error(err);
         return res.status(500).send("Lỗi hiện thị user từ database");
     }
-};
+};*/
 
 
 module.exports = {
