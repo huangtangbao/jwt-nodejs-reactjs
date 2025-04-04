@@ -56,9 +56,36 @@ const deleteUsers = async (id) => {
         throw error;
     }
 };
+const getUserById = async (id) => {
+    try {
+        const sql = 'SELECT * FROM users WHERE id = ?';
+        const [results] = await pool.execute(sql, [id]);
 
+        if (results.length > 0) {
+            return results[0]; // Trả về thông tin người dùng
+        } else {
+            return null; // Không tìm thấy người dùng
+        }
+    } catch (error) {
+        console.error("Error fetching user by ID:", error);
+        throw error;
+    }
+};
+const updateUser = async (id, email, username, password) => {
+    try {
+        const sql = 'UPDATE users SET email = ?, username = ? WHERE id = ?';
+        const params = [email, username, id];
+        const [result] = await pool.execute(sql, params);
+        return result;
+    } catch (error) {
+        console.error("Error updating user:", error);
+        throw error;
+    }
+};
 module.exports = {
     CreateNewUser,
     getUserList,
-    deleteUsers
+    deleteUsers,
+    getUserById,
+    updateUser
 }
