@@ -71,7 +71,7 @@ const getUserById = async (id) => {
         throw error;
     }
 };
-const updateUser = async (id, email, username, password) => {
+const updateUser = async (id, email, username) => {
     try {
         const sql = 'UPDATE users SET email = ?, username = ? WHERE id = ?';
         const params = [email, username, id];
